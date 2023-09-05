@@ -6,6 +6,7 @@ let operator = "add";
 let second = 3;
 
 let sum = 23;
+
 function add(a,b){
     return a +b;
 }
@@ -19,11 +20,13 @@ function divide(a,b){
     return a/b;
 }
 
-function operate(){
-   const result = document.getElementById('result');
-   result.innerHTML =  (window[operator](first,second));
-}
+function operate(operator, first, second) {
+    const resultElement = document.querySelector('.result');
+    const num = window[operator](first, second); // Assuming operator is a valid function in the window object.
+    resultElement.innerHTML = num; // Display the result in the 'result' element.
+ }
+ 
 
-console.log(operate());
+//console.log(operate());
 
-document.getElementById('=').addEventListener('mousedown', operate());
+document.getElementById('=').addEventListener('mousedown', operate(operator,first,second));

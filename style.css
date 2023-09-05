@@ -16,11 +16,10 @@ body{
     padding: 4px;
 }
 
-#result{
+.result{
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    
     height:75px;
     width: 300px;
     background-color: #1C1C1C;
