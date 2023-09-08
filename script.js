@@ -10,7 +10,7 @@ let currentNum = 0;
 let displayNum = 0;
 
 function add(a,b){
-    return a + b;
+    return Number(a) + Number(b);
 }
 function subtract(a,b){
     return a - b;
@@ -28,7 +28,7 @@ function operate(operator, first) {
     displayNum = 0;
     
     const resultElement = document.querySelector('.result');
-    displayNum = window[operator](first, second); // Assuming operator is a valid function in the window object.
+    displayNum = window[operator](first,second); // Assuming operator is a valid function in the window object.
     resultElement.innerHTML = displayNum; // Display the result in the 'result' element.
 }
 
@@ -37,6 +37,11 @@ function clickedButton(event){
     console.log(buttonValue);
     displayNum = displayNum + buttonValue;
     console.log(displayNum);
+    
+
+    if (displayNum.charAt(0) == 0){
+        displayNum = displayNum.slice(1);
+    }
     updateDisplayNum();
 }
  
@@ -49,18 +54,15 @@ function chooseOperator(op){
     operator = op;
     first = displayNum;
     displayNum = 0;
-    console.log(first);
-    console.log(operator);
-    console.log(displayNum);
     updateDisplayNum();
 }
 
 function clear (){
     displayNum = 0;
     updateDisplayNum();
+    operator = '';
 }
 
-//console.log(operate());
 const numbers = document.querySelectorAll('.num');
 numbers.forEach(function (number) {
     number.addEventListener('click', clickedButton);
