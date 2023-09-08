@@ -47,7 +47,6 @@ function updateDisplayNum(){
 
 function chooseOperator(op){
     operator = op;
-
     first = displayNum;
     displayNum = 0;
     console.log(first);
@@ -70,18 +69,18 @@ numbers.forEach(function (number) {
 
 
 const mult = document.getElementById('X');
-mult.addEventListener('click', chooseOperator('multiply'));
+mult.addEventListener('click', () => {chooseOperator('multiply')});
 
 const divi = document.getElementById('/');
-divi.addEventListener('click',chooseOperator('divide'));
+divi.addEventListener('click', () => {chooseOperator('divide')});
 
 const ad = document.getElementById('+');
-ad.addEventListener('click',chooseOperator('add'));
+ad.addEventListener('click', () => {chooseOperator('add')});
 
 const sub = document.getElementById('-');
-sub.addEventListener('click',chooseOperator('subtract'));
+sub.addEventListener('click', () => {chooseOperator('subtract')});
 
 const ac = document.getElementById('AC');
-ac.addEventListener('click',clear)
+ac.addEventListener('click',clear);
 
 document.getElementById('=').addEventListener('click', () => operate(operator,first));
