@@ -39,25 +39,21 @@ function addToArgumentsArray (args){
 function operate() {
     addToNumberArray(displayNum);
     displayNum = '0'; // Reset the display to '0'
+    let a = 0
     
-    for (let a = 0; a < argumentsArray.length; a++) {
+    for (; a < argumentsArray.length; a++) {
         const functionName = argumentsArray[a];
         const arg1 = numberArray[a]; // Use the current displayNum as the first argument
         const arg2 = numberArray[a + 1];
-
-        if (typeof window[functionName] === 'function') {
-            // Call the function if it exists
-            displayNum = window[functionName](arg1, arg2).toString();
-        } else {
-            console.error(`${functionName} is not a function.`);
-        }
+        numberArray[a + 1]= window[functionName](arg1, arg2);
     }
-
+    displayNum = numberArray[a];
+    
     // Clear the arrays after calculations
     argumentsArray = [];
     numberArray = [];
-    
-    updateDisplayNum();
+    result = 0; // resets the calculations for this function 
+    updateDisplayNum(); // update the num to show on the calculator
 }
 
 
@@ -103,6 +99,8 @@ function clear (){
     displayNum = 0;
     updateDisplayNum();
     operator = '';
+    argumentsArray = [];
+    numberArray = [];
 }
 
 const numbers = document.querySelectorAll('.num');
