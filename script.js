@@ -21,6 +21,25 @@ function divide(a,b){
     return a/b;
 }
 
+function plusMinus(num){
+    double = Math.abs(Number(num) + Number(num));
+    
+    if(num > 0){
+        displayNum = num - double;
+        console.log(num);
+        console.log(double);
+        console.log(displayNum);
+    } else if (num < 0 ){
+        displayNum = num + double;
+        console.log(num);
+        console.log(double);
+        console.log(displayNum);
+    } else {
+        displayNum = num;
+    }
+    updateDisplayNum();
+}
+
 function addToNumberArray (number){ // adds number to an array for calculation 
     let length = numberArray.length;
     numberArray[length] = number;
@@ -67,8 +86,6 @@ function updateDisplayNum(){ // update the number on the calculator everytime so
     resultElement.innerHTML = displayNum;
 }
 
-
-
 function chooseOperator(op){ //chooses which operation you will do 
     addToArgumentsArray(op);
     addToNumberArray(displayNum);
@@ -89,12 +106,12 @@ function clear (){ // resets all variables
 const numbers = document.querySelectorAll('.num');
 numbers.forEach(function (number) {
     number.addEventListener('click', clickedButton);
-   // number.addEventListener('click', updateDisplayNum);
 });
 
+//adding event listener for 0 
 const zero = document.querySelector('.zero');
 zero.addEventListener('click',clickedButton);
-//zero.addEventListener('click',updateDisplayNum)
+
 
 // adding event listeners to all the operator buttons 
 const mult = document.getElementById('X');
@@ -113,3 +130,6 @@ const ac = document.getElementById('AC');
 ac.addEventListener('click',clear);
 
 document.getElementById('=').addEventListener('click', () => operate(numberArray,argumentsArray));
+
+const plusMin = document.getElementById('+-');
+plusMin.addEventListener('click', () => {plusMinus(displayNum)})
