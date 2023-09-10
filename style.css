@@ -51,10 +51,11 @@ button:hover{
 .right{
     background-color: #FF9500;
 }
-.num{
+.num, 
+.zero{
     background-color: #D4D4D2;
 }
 
-#zero{
+.zero{
     width:150px;
 }

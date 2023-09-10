@@ -89,8 +89,12 @@ function clear (){ // resets all variables
 const numbers = document.querySelectorAll('.num');
 numbers.forEach(function (number) {
     number.addEventListener('click', clickedButton);
-    number.addEventListener('click', updateDisplayNum);
+   // number.addEventListener('click', updateDisplayNum);
 });
+
+const zero = document.querySelector('.zero');
+zero.addEventListener('click',clickedButton);
+//zero.addEventListener('click',updateDisplayNum)
 
 // adding event listeners to all the operator buttons 
 const mult = document.getElementById('X');
